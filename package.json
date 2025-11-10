@@ -1,0 +1,32 @@
+{
+  "name": "vite-vue-unpic",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.24"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@unpic/pixels": "^1.3.0",
+    "@unpic/placeholder": "^0.1.2",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "blurhash": "^2.0.5",
+    "magic-string": "^0.30.21",
+    "typescript": "~5.9.3",
+    "vite": "npm:rolldown-vite@7.2.2",
+    "vue-tsc": "^3.1.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:rolldown-vite@7.2.2"
+    }
+  },
+  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd"
+}
