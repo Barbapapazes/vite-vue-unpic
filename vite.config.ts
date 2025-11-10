@@ -7,13 +7,15 @@ import { readFile } from 'node:fs/promises'
 import { encode } from "blurhash";
 import { getPixels } from '@unpic/pixels'
 import { blurhashToDataUri } from "@unpic/placeholder";
+import inspect from 'vite-plugin-inspect'
+
 
 export default defineConfig({
   plugins: [
+    inspect(),
     vue(),
     (() => {
       const publicDir = join(cwd(), 'public')
-
       return {
         name: 'unpic',
         enforce: 'pre',
@@ -22,10 +24,17 @@ export default defineConfig({
 
           const s = new MagicString(code)
 
-          // extract src from img tags
           const imgTagRegex = /<img\s+[^>]*src=["']([^"']+)["'][^>]*>/g
-          let match
-          while ((match = imgTagRegex.exec(code)) !== null) {
+          let match = imgTagRegex.exec(code)
+
+          if (!match) {
+            return {
+              code,
+              map: null
+            }
+          }
+
+          do {
             const srcValue = match[1]
 
             const img = await readFile(join(publicDir, srcValue))
@@ -41,7 +50,9 @@ export default defineConfig({
             )
 
             s.overwrite(imgTagStart, imgTagEnd, newImgTag)
-          }
+
+            match = imgTagRegex.exec(code)
+          } while (match !== null)
 
           return {
             code: s.toString(),

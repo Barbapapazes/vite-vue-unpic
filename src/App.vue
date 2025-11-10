@@ -5,6 +5,12 @@
    <p>
     Photo by Steve Busch on Unsplash
    </p>
+
+    <img src="/steve-busch-tHfRemjLK4M-unsplash.jpg" />
+
+    <p>
+      Photo by Steve Busch on Unsplash
+    </p>
   </div>
 </template>
 
