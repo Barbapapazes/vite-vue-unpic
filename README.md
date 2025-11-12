@@ -4,4 +4,4 @@ Cumulative Layout Shift, when related to images, can be tricky to handle. Learn 
 
 ---
 
-Read more in the blog post: [Erase CLS by Automatically Optimizing Images with Vite](https://soubiran.dev/posts/erase-cls-by-automatically-optimizing-images-with-vite)
+Read more: [Erase CLS by Automatically Optimizing Images with Vite](https://soubiran.dev/posts/erase-cls-by-automatically-optimizing-images-with-vite)
